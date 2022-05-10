@@ -372,6 +372,7 @@ button:disabled {
 	&lt;&lt;/switch&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;hr&gt;
+
 &lt;&lt;if $tomsonTarget is &quot;レイラ&quot;&gt;&gt;
 	レイラはトムソンのスキルにより行動できません。&lt;br&gt;
 	次の行動はベアです。対象を入力してください。&lt;br&gt;
@@ -383,7 +384,7 @@ button:disabled {
 		&lt;&lt;option &quot;トムソン&quot;&gt;&gt;
 		&lt;&lt;option &quot;発動なし&quot;&gt;&gt;
 	&lt;&lt;/listbox&gt;&gt;
-	&lt;link rel=&quot;preload&quot; as=&quot;image&quot; href=&quot;https://drive.google.com/uc?id=14bWAhG073c1CYowk9qcVdx-pqrwxoIc5&quot;&gt;
+	&lt;link rel=&quot;preload&quot; as=&quot;image&quot; href=&quot;https://drive.google.com/uc?id=14nTrM-eD0_loDiZPvizc2pAZUYU-XQBO&quot;&gt;
 	&lt;span style=&quot;font-size:40px;&quot;&gt;&lt;br&gt;[[次へ-&gt;ベアのスキル画像2]]&lt;/span&gt;
 
 &lt;&lt;elseif $isBearHasMask is false&gt;&gt;
@@ -398,6 +399,7 @@ button:disabled {
 	&lt;&lt;/listbox&gt;&gt;
 	&lt;link rel=&quot;preload&quot; as=&quot;image&quot; href=&quot;https://drive.google.com/uc?id=14bWAhG073c1CYowk9qcVdx-pqrwxoIc5&quot;&gt;
 	&lt;span style=&quot;font-size:40px;&quot;&gt;&lt;br&gt;[[次へ-&gt;レイラのスキル画像1]]&lt;/span&gt;
+
 &lt;&lt;elseif $tomsonTarget is &quot;ベア&quot;&gt;&gt;
 	ベアはトムソンのスキルにより行動できません。&lt;br&gt;
 	次の行動はレイラです。対象を入力してください。&lt;br&gt;
@@ -411,6 +413,7 @@ button:disabled {
 	&lt;&lt;/listbox&gt;&gt;
 	&lt;link rel=&quot;preload&quot; as=&quot;image&quot; href=&quot;https://drive.google.com/uc?id=14bWAhG073c1CYowk9qcVdx-pqrwxoIc5&quot;&gt;
 	&lt;span style=&quot;font-size:40px;&quot;&gt;&lt;br&gt;[[次へ-&gt;レイラのスキル画像1]]&lt;/span&gt;
+
 &lt;&lt;elseif $isBearHasMask is true&gt;&gt;
 	覆面を持っているため、次の行動はベアです。対象を入力してください。&lt;br&gt;
 	&lt;img class=&quot;bear2&quot;/&gt; &lt;&lt;listbox &quot;$bearTarget&quot; autoselect&gt;&gt;
@@ -421,13 +424,13 @@ button:disabled {
 		&lt;&lt;option &quot;トムソン&quot;&gt;&gt;
 		&lt;&lt;option &quot;発動なし&quot;&gt;&gt;
 	&lt;&lt;/listbox&gt;&gt;
-	&lt;link rel=&quot;preload&quot; as=&quot;image&quot; href=&quot;https://drive.google.com/uc?id=14bWAhG073c1CYowk9qcVdx-pqrwxoIc5&quot;&gt;
-	&lt;span style=&quot;font-size:40px;&quot;&gt;&lt;br&gt;[[次へ-&gt;ベアのスキル画像1]]&lt;/span&gt;
+	&lt;link rel=&quot;preload&quot; as=&quot;image&quot; href=&quot;https://drive.google.com/uc?id=14nTrM-eD0_loDiZPvizc2pAZUYU-XQBO&quot;&gt;
+	&lt;span style=&quot;font-size:40px;&quot;&gt;&lt;br&gt;[[次へ-&gt;ベアのスキル画像覆面持ち]]&lt;/span&gt;
 &lt;&lt;else&gt;&gt;
 	エラーが発生したと思われます。ページを開きなおし、最初から入力するか、PDFを用いたエンディング処理を行ってください。&lt;br&gt;
 &lt;&lt;/if&gt;&gt;
   &lt;/div&gt;
-&lt;/section&gt;</tw-passagedata><tw-passagedata pid="3" name="ベアの行動1" tags="nobr" position="400,225" size="100,100">&lt;section&gt;
+&lt;/section&gt;</tw-passagedata><tw-passagedata pid="3" name="ベアの行動覆面持ち" tags="nobr" position="401,226" size="100,100">&lt;section&gt;
   &lt;div&gt;
 &lt;&lt;if $bearTarget is &quot;発動なし&quot;&gt;&gt;
 	ベアはスキルを発動しませんでした。&lt;br&gt;
@@ -470,7 +473,7 @@ button:disabled {
 			エラーが発生したようです。申し訳ありませんが、再度最初から入力するか、PDFを用いたエンディング処理をお願いします。&lt;br&gt;
 	&lt;&lt;/switch&gt;&gt;
 	&lt;&lt;if !$isBearGone&gt;&gt;
-    &lt;br&gt;ベアの誘拐は失敗しました。&lt;br&gt;
+    	&lt;br&gt;ベアの誘拐は失敗しました。&lt;br&gt;
 	&lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 
@@ -588,7 +591,7 @@ button:disabled {
 	    次の行動はサムです。対象は自動で決定されます。&lt;br&gt;
 	    &lt;img class=&quot;sam&quot;/&gt; 
 		&lt;link rel=&quot;preload&quot; as=&quot;image&quot; href=&quot;https://drive.google.com/uc?id=14ZR63rtBgdAvwY_byWSIzp5lkzdvtASJ&quot;&gt;
-&lt;span style=&quot;font-size:40px;&quot;&gt;&lt;br&gt;[[次へ-&gt;サムのスキル画像]]&lt;/span&gt;
+		&lt;span style=&quot;font-size:40px;&quot;&gt;&lt;br&gt;[[次へ-&gt;サムのスキル画像]]&lt;/span&gt;
     &lt;&lt;else&gt;&gt;
          次の行動はノッキオです。対象を入力してください。&lt;br&gt;
         &lt;img class=&quot;nocchio&quot;/&gt; &lt;&lt;listbox &quot;$nocchioTarget&quot; autoselect&gt;&gt;
@@ -606,7 +609,7 @@ button:disabled {
             &lt;&lt;/if&gt;&gt;
         &lt;&lt;/if&gt;&gt;
 		&lt;link rel=&quot;preload&quot; as=&quot;image&quot; href=&quot;https://drive.google.com/uc?id=153ZtEwfUA-8wuMdmG4sFOmvsvePDQpnS&quot;&gt;
-&lt;span style=&quot;font-size:40px;&quot;&gt;&lt;br&gt;[[次へ-&gt;ノッキオのスキル画像]]&lt;/span&gt;
+		&lt;span style=&quot;font-size:40px;&quot;&gt;&lt;br&gt;[[次へ-&gt;ノッキオのスキル画像]]&lt;/span&gt;
     &lt;&lt;/if&gt;&gt;
 &lt;&lt;else&gt;&gt;
     &lt;&lt;if $tomsonTarget is &quot;ベア&quot;&gt;&gt;
@@ -627,7 +630,7 @@ button:disabled {
             &lt;&lt;/if&gt;&gt;
         &lt;&lt;/if&gt;&gt;
 		&lt;link rel=&quot;preload&quot; as=&quot;image&quot; href=&quot;https://drive.google.com/uc?id=153ZtEwfUA-8wuMdmG4sFOmvsvePDQpnS&quot;&gt;
-&lt;span style=&quot;font-size:40px;&quot;&gt;&lt;br&gt;[[次へ-&gt;ノッキオのスキル画像]]&lt;/span&gt;
+		&lt;span style=&quot;font-size:40px;&quot;&gt;&lt;br&gt;[[次へ-&gt;ノッキオのスキル画像]]&lt;/span&gt;
     &lt;&lt;else&gt;&gt;
 	    次の行動はベアです。対象を入力してください。&lt;br&gt;
 	    &lt;img class=&quot;bear&quot;/&gt; &lt;&lt;listbox &quot;$bearTarget&quot; autoselect&gt;&gt;
@@ -777,6 +780,8 @@ button:disabled {
 		&lt;&lt;case &quot;ベア&quot;&gt;&gt;
 			&lt;img class=&quot;bear&quot;/&gt; 痛ェなぁ……てめえ……&lt;br&gt;
             &lt;img class=&quot;nocchio&quot;/&gt; OK!　君は健康のようだ……　さぁ僕は気にしないで!!&lt;br&gt;
+		&lt;&lt;case &quot;ノッキオ&quot;&gt;&gt;
+			レイラに逸らされ、スキルを使用することはできなかった。&lt;br&gt;
 		&lt;&lt;default&gt;&gt;
 			エラーが発生したようです。申し訳ありませんが、再度最初から入力するか、PDFを用いたエンディング処理をお願いします。&lt;br&gt;
 	&lt;&lt;/switch&gt;&gt;
@@ -896,7 +901,7 @@ button:disabled {
     &lt;br&gt;&#39;&#39;サム、ジルのエンディング&#39;&#39;&lt;br&gt;
     &lt;&lt;if $isSamBroken&gt;&gt;
         サムがジルに殺害された。&lt;br&gt;
-        [[サム&amp;ジル殺害END]]]&lt;br&gt;
+        [[サム&amp;ジル殺害END]]&lt;br&gt;
     &lt;&lt;elseif $isGillBroken&gt;&gt;
         ジルが破壊された。&lt;br&gt;
         [[ジル破壊END]]、[[サム破壊END]]&lt;br&gt;
@@ -1042,7 +1047,7 @@ button:disabled {
 &lt;/style&gt;
 &lt;span style=&quot;color:orange; text-decoration: underline;font-size:50px;&quot;&gt;&lt;ruby&gt;紳士の眼差し&lt;rt&gt;フォアサイト&lt;/rt&gt;&lt;/ruby&gt;&lt;/span&gt;
 [img[https://drive.google.com/uc?id=14_0MwxK1MsQVH8-dhLe6RcQ674mhF1uj][トムソンの行動]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="11" name="ベアのスキル画像1" tags="nobr" position="400,125" size="100,100">&lt;div style=&quot;text-align: center&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="11" name="ベアのスキル画像覆面持ち" tags="nobr" position="400,125" size="100,100">&lt;div style=&quot;text-align: center&quot;&gt;
 &lt;style&gt; img {
 	max-width:60%;
 	max-heigh:60%
@@ -1050,7 +1055,7 @@ button:disabled {
 &lt;link rel=&quot;preload&quot; as=&quot;image&quot; href=&quot;https://drive.google.com/uc?id=16H7UH8OhTnj6Bgijyd0N4uGY8SDx6fU4&quot;&gt;
 &lt;/style&gt;
 &lt;span style=&quot;color:blue; text-decoration: underline;font-size:50px;&quot;&gt;&lt;ruby&gt;誘拐&lt;rt&gt;キッドナッピング&lt;/rt&gt;&lt;/ruby&gt;&lt;/span&gt;
-[img[https://drive.google.com/uc?id=14nTrM-eD0_loDiZPvizc2pAZUYU-XQBO][ベアの行動1]]
+[img[https://drive.google.com/uc?id=14nTrM-eD0_loDiZPvizc2pAZUYU-XQBO][ベアの行動覆面持ち]]
 &lt;/div&gt;</tw-passagedata><tw-passagedata pid="12" name="レイラのスキル画像1" tags="nobr" position="250,125" size="100,100">&lt;div style=&quot;text-align: center&quot;&gt;
 &lt;style&gt; img {
 	max-width:60%;
