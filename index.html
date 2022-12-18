@@ -488,7 +488,7 @@ button:disabled {
 	&lt;&lt;option &quot;トムソン&quot;&gt;&gt;
 	&lt;&lt;option &quot;ベア&quot;&gt;&gt;
 	&lt;&lt;option &quot;発動なし&quot;&gt;&gt;
-	&lt;&lt;/listbox&gt;&gt;
+	&lt;&lt;/listbox&gt;&gt;&lt;br&gt;
 	&lt;&lt;if $isNokHasXE01&gt;&gt;
         &lt;&lt;checkbox &quot;$isNokHasXE01&quot; false true&gt;&gt; ノッキオは『説明書』を所持しています　使用しますか？&lt;br&gt;
         &lt;&lt;if $isNokHasLove&gt;&gt;
@@ -514,7 +514,7 @@ button:disabled {
 		&lt;&lt;option &quot;トムソン&quot;&gt;&gt;
 		&lt;&lt;option &quot;ベア&quot;&gt;&gt;
 		&lt;&lt;option &quot;発動なし&quot;&gt;&gt;
-		&lt;&lt;/listbox&gt;&gt;
+		&lt;&lt;/listbox&gt;&gt;&lt;br&gt;
 		&lt;&lt;if $isNokHasXE01&gt;&gt;
     	    &lt;&lt;checkbox &quot;$isNokHasXE01&quot; false true&gt;&gt; ノッキオは『説明書』を所持しています　使用しますか？&lt;br&gt;
     	    &lt;&lt;if $isNokHasLove&gt;&gt;
@@ -601,7 +601,7 @@ button:disabled {
 		&lt;&lt;option &quot;トムソン&quot;&gt;&gt;
 		&lt;&lt;option &quot;ベア&quot;&gt;&gt;
 		&lt;&lt;option &quot;発動なし&quot;&gt;&gt;
-	    &lt;&lt;/listbox&gt;&gt;
+	    &lt;&lt;/listbox&gt;&gt;&lt;br&gt;
 	    &lt;&lt;if $isNokHasXE01&gt;&gt;
             &lt;&lt;checkbox &quot;$isNokHasXE01&quot; false true&gt;&gt; ノッキオは『説明書』を所持しています　使用しますか？&lt;br&gt;
             &lt;&lt;if $isNokHasLove&gt;&gt;
@@ -622,7 +622,7 @@ button:disabled {
 		    &lt;&lt;option &quot;トムソン&quot;&gt;&gt;
 		    &lt;&lt;option &quot;ベア&quot;&gt;&gt;
 		    &lt;&lt;option &quot;発動なし&quot;&gt;&gt;
-	    &lt;&lt;/listbox&gt;&gt;
+	    &lt;&lt;/listbox&gt;&gt;&lt;br&gt;
 	    &lt;&lt;if $isNokHasXE01&gt;&gt;
             &lt;&lt;checkbox &quot;$isNokHasXE01&quot; false true&gt;&gt; ノッキオは『説明書』を所持しています　使用しますか？&lt;br&gt;
             &lt;&lt;if $isNokHasLove&gt;&gt;
@@ -716,7 +716,7 @@ button:disabled {
 	&lt;&lt;option &quot;トムソン&quot;&gt;&gt;
 	&lt;&lt;option &quot;ベア&quot;&gt;&gt;
 	&lt;&lt;option &quot;発動なし&quot;&gt;&gt;
-	&lt;&lt;/listbox&gt;&gt;
+	&lt;&lt;/listbox&gt;&gt;&lt;br&gt;
 	&lt;&lt;if $isNokHasXE01&gt;&gt;
         &lt;&lt;checkbox &quot;$isNokHasXE01&quot; false true&gt;&gt; ノッキオは『説明書』を所持しています　使用しますか？&lt;br&gt;
         &lt;&lt;if $isNokHasLove&gt;&gt;
@@ -881,6 +881,7 @@ button:disabled {
             [[メインGエンド]]&lt;br&gt;
         &lt;&lt;elseif $isTomsonGone&gt;&gt;
             ベアであり、トムソンを誘拐した。&lt;br&gt;
+			&lt;&lt;set $isTomsonBroken to true&gt;&gt;
             [[メインJエンド]]&lt;br&gt;
         &lt;&lt;else&gt;&gt;
             ベアである。&lt;br&gt;
@@ -907,8 +908,8 @@ button:disabled {
         [[ジル破壊END]]、[[サム破壊END]]&lt;br&gt;
     &lt;&lt;elseif $isGillGone&gt;&gt;
         ジルが誘拐された。&lt;br&gt;
-        [[サム誘拐END]], [[ジル誘拐END]]&lt;br&gt;
-    &lt;&lt;elseif $isGillLOVE&gt;&gt;
+        [[サム喪失END]], [[ジル誘拐END]]&lt;br&gt;
+    &lt;&lt;elseif $isGillLove&gt;&gt;
         サムとジルが生存し、ジルにラブ・ギアが埋め込まれた。&lt;br&gt;
         [[サム&amp;ジル恋愛END]]&lt;br&gt;
         &lt;&lt;set $isSamGillEnd to true&gt;&gt;
@@ -928,8 +929,16 @@ button:disabled {
         &lt;&lt;elseif $isGillGone&gt;&gt;
             ジルが誘拐された。&lt;br&gt;
             [[ジル誘拐END]]&lt;br&gt;
-        &lt;&lt;/if&gt;&gt;
-    &lt;&lt;/if&gt;&gt;
+        &lt;&lt;elseif $isGillLove&gt;&gt;
+        	サムが最多票となったが、サムとジルが生存し、ジルにラブ・ギアが埋め込まれた。&lt;br&gt;
+        	[[サム&amp;ジル恋愛END]]&lt;br&gt;
+        	&lt;&lt;set $isSamGillEnd to true&gt;&gt;
+		&lt;&lt;else&gt;&gt;
+			サムが最多票となったが、ジルとサムが両方生存している。
+			[[サム&amp;ジル生存END]]&lt;br&gt;
+			&lt;&lt;set $isSamGillEnd to true&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/if&gt;&gt;
 &lt;&lt;elseif $votedOut is &quot;ジル&quot;&gt;&gt;
     &lt;&lt;if $isSamBroken is false&gt;&gt;
         &lt;br&gt;&#39;&#39;サムのエンディング&#39;&#39;&lt;br&gt;
@@ -938,10 +947,10 @@ button:disabled {
             [[サム破壊END]]&lt;br&gt;
         &lt;&lt;elseif $isGillGone&gt;&gt;
             ジルが誘拐された。&lt;br&gt;
-            [[サム誘拐END]]&lt;br&gt;
+            [[サム喪失END]]&lt;br&gt;
         &lt;&lt;else&gt;&gt;
             ジルが最多票になり、逃走した。&lt;br&gt;
-            [[サム誘拐END]]&lt;br&gt;
+            [[サム喪失END]]&lt;br&gt;
         &lt;&lt;/if&gt;&gt;
     &lt;&lt;else&gt;&gt;
         ジルが最多票になりサムを殺害した。&lt;br&gt;
@@ -977,7 +986,7 @@ button:disabled {
         サムがジルに殺害されてしまった。&lt;br&gt;
         [[ノッキオ失敗END]]&lt;br&gt;
     &lt;&lt;elseif $votedOut isnot &quot;ジル&quot;&gt;&gt;
-        &lt;&lt;if $isGillNormal is true or $isGillLOVE is true&gt;&gt;
+        &lt;&lt;if $isGillNormal is true or $isGillLove is true&gt;&gt;
             ノッキオがジルを破壊せずに任務を達成した。&lt;br&gt;
             [[ノッキオ大成功END]]&lt;br&gt;
         &lt;&lt;elseif $isGillBroken&gt;&gt;
@@ -988,8 +997,13 @@ button:disabled {
             [[ノッキオジル追跡END]]&lt;br&gt;
         &lt;&lt;/if&gt;&gt;
     &lt;&lt;else&gt;&gt;
-        ジルが逃走した。&lt;br&gt;
-        [[ノッキオジル追跡END]]&lt;br&gt;
+		&lt;&lt;if $isGillBroken&gt;&gt;
+        	ジルが最多票となり、破壊された。&lt;br&gt;
+        	[[ノッキオ成功END]]&lt;br&gt;
+		&lt;&lt;else&gt;&gt;
+			ジルが最多票となり、逃走した。&lt;br&gt;
+			[[ノッキオジル追跡END]]&lt;br&gt;
+		&lt;&lt;/if&gt;&gt;
     &lt;&lt;/if&gt;&gt;
 &lt;&lt;/if&gt;&gt;
 &lt;&lt;if $votedOut isnot &quot;ベア&quot; and $isBearEnd is false&gt;&gt;
@@ -1005,12 +1019,12 @@ button:disabled {
 
 &lt;&lt;if $votedOut isnot &quot;トムソン&quot;&gt;&gt;
     &lt;br&gt;&#39;&#39;トムソンのエンディング&#39;&#39;&lt;br&gt;
-    &lt;&lt;if $isTomsonGone&gt;&gt;
-        トムソンが誘拐された。&lt;br&gt;
-        [[トムソン誘拐END]]&lt;br&gt;
-    &lt;&lt;elseif $isTomsonBroken&gt;&gt;
+	  &lt;&lt;if $isTomsonBroken&gt;&gt;
         トムソンが破壊された。&lt;br&gt;
         [[トムソン破壊END]]&lt;br&gt;
+    &lt;&lt;elseif $isTomsonGone&gt;&gt;
+        トムソンが誘拐された。&lt;br&gt;
+        [[トムソン誘拐END]]&lt;br&gt;
     &lt;&lt;elseif $isTomsonMachine&gt;&gt;
         &lt;&lt;if $votedOut is &quot;ノッキオ&quot;&gt;&gt;
             トムソンが告発された。&lt;br&gt;
@@ -1072,7 +1086,7 @@ button:disabled {
 &lt;/style&gt;
 &lt;span style=&quot;color:magenta; text-decoration: underline;font-size:50px;&quot;&gt;&lt;ruby&gt;堂々たる恋の歩み&lt;rt&gt;ラブ・ステップ&lt;/rt&gt;&lt;/ruby&gt;&lt;/span&gt;
 [img[https://drive.google.com/uc?id=14ZR63rtBgdAvwY_byWSIzp5lkzdvtASJ][サムの行動]]
-&lt;/div&gt;</tw-passagedata><tw-passagedata pid="14" name="ノッキオのスキル画像" tags="nobr" position="400,375" size="100,100">&lt;div style=&quot;text-align: center&quot;&gt;
+&lt;/div&gt;</tw-passagedata><tw-passagedata pid="14" name="ノッキオのスキル画像" tags="nobr" position="401,372" size="100,100">&lt;div style=&quot;text-align: center&quot;&gt;
 &lt;style&gt; img {
 	max-width:60%;
 	max-heigh:60%
@@ -1689,7 +1703,7 @@ button:disabled {
 
 &lt;&lt;return &quot;前に戻る&quot;&gt;&gt;
 &lt;/div&gt;
-&lt;/section&gt;</tw-passagedata><tw-passagedata pid="31" name="サム&amp;ジル恋愛END" tags="" position="700,800" size="100,100">&lt;section&gt;
+&lt;/section&gt;</tw-passagedata><tw-passagedata pid="31" name="サム&amp;ジル恋愛END" tags="" position="720,797" size="100,100">&lt;section&gt;
 &lt;div&gt;
 それからしばらく経った後……。
 
@@ -1907,7 +1921,7 @@ button:disabled {
 
 &lt;&lt;return &quot;前に戻る&quot;&gt;&gt;
 &lt;/div&gt;
-&lt;/section&gt;</tw-passagedata><tw-passagedata pid="35" name="レイラ失敗END" tags="" position="625,1350" size="100,100">&lt;section&gt;
+&lt;/section&gt;</tw-passagedata><tw-passagedata pid="35" name="レイラ失敗END" tags="" position="645,1330" size="100,100">&lt;section&gt;
 &lt;div&gt;
 「自己責任、だな」
 壮年の男はそうあたしに伝える。
@@ -2303,7 +2317,7 @@ button:disabled {
 
 トムソンだった部品から、何かが焼ける音がする。
 
-あなた達が音にふと目をやると、
+音にふと目をやると、
 そこには鉄で出来た疑似心部が真っ赤になって転がっていた。
 
 
@@ -2500,7 +2514,7 @@ button:disabled {
 &#39;&#39;サム、ジルのエンディング&#39;&#39;
 サムがジルに殺害された➡[[サム&amp;ジル殺害END]]
 ジルが破壊された➡[[ジル破壊END]], [[サム破壊END]]
-ジルが誘拐された➡[[サム誘拐END]], [[ジル誘拐END]]
+ジルが誘拐された➡[[サム喪失END]], [[ジル誘拐END]]
 サムとジルが生存し、ジルの殺害機構が解除された➡[[サム&amp;ジル生存END]]
 サムとジルが生存し、ジルにラブ・ギアが埋め込まれた➡[[サム&amp;ジル恋愛END]]
 ジルが最多票になりサムを殺害した➡[[サム殺害ジル最多票END]]
@@ -2616,7 +2630,7 @@ button:disabled {
 
 &lt;&lt;return &quot;前に戻る&quot;&gt;&gt;
 &lt;/div&gt;
-&lt;/section&gt;</tw-passagedata><tw-passagedata pid="52" name="サム誘拐END" tags="" position="650,1600" size="100,100">&lt;section&gt;
+&lt;/section&gt;</tw-passagedata><tw-passagedata pid="52" name="サム喪失END" tags="" position="650,1600" size="100,100">&lt;section&gt;
 &lt;div&gt;
 ジルはいったいどこに行ってしまったのだろうか。
 サムは私財のほとんどを彼女の捜索に充てた。
@@ -2642,7 +2656,7 @@ button:disabled {
 そのときはきっと
 あのとき言えなかった言葉を君にちゃんと伝えるから。
 
-&lt;b&gt;&lt;span style=&quot;color:#c92a2a; text-decoration: bold;font-size:30px;text-align: center;&quot;&gt;サム誘拐END
+&lt;b&gt;&lt;span style=&quot;color:#c92a2a; text-decoration: bold;font-size:30px;text-align: center;&quot;&gt;サム喪失END
 「喪失」&lt;/span&gt;&lt;/b&gt;
 
 
